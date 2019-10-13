@@ -1,0 +1,5 @@
+sudo make keebio/iris/rev2:frithjof
+sudo make keebio/iris/rev2:frithjof:avrdude
+
+finner config filene i /home/fbrate/Documents/qmk_firmware/keyboards/keebio/iris/keymaps/frithjof
+
