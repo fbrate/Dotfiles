@@ -17,15 +17,23 @@ inoreabbrev sout System.out.println();<ESC>hi<C-R>=Eatchar('\s')<CR>
 inoreabbrev jmain public static void main (String [] args ) {<CR>}<ESC>ko<TAB><C-R>=Eatchar('\s')<CR>
 
 
+noremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+
+
 "fzf:
 
 set rtp+=~/.vim/bundle/fzf/bin/fzf
-
+	
 syntax enable
 set background=light
 colorscheme solarized 
 
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 "set paste               " Paste from a windows or from vim
 set go+=a               " Visual selection automatically copied to the clipboard
 
