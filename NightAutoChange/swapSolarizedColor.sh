@@ -21,12 +21,19 @@ if [ "Dark" == "$load_or_create" ]; then
 
 	#rofi
 	sed -i '0,/base16-solarized-light.rasi/s/base16-solarized-light.rasi/base16-solarized-dark.rasi/' $HOME/.config/i3/config
+
+
+	#i3
+
+	sed -i '/set $solBGcolor/c\set $solBGcolor 	#002b36' $HOME/.config/i3/config	
+	sed -i '/set $solBGalt/c\set $solBGalt 	#073642' $HOME/.config/i3/config
 	#poly
 
-	sed -i '/foregroundLighter= /c\foregroundLighter= #657b83' "$HOME/.config/polybar/config"	
-	sed -i '/foregroundMain	= /c\foregroundMain= #586e75' "$HOME/.config/polybar/config"
-	sed -i '/backgroundLighter= /c\backgroundLighter= #073642' "$HOME/.config/polybar/config"
-	sed -i '/backgroundMain= /c\backgroundMain= #002b36' "$HOME/.config/polybar/config"
+
+	sed -i '/foregroundLighter= /c\foregroundLighter= #586e75' "$HOME/.config/polybar/config"	
+	sed -i '/foregroundMain	= /c\foregroundMain= #657b83' "$HOME/.config/polybar/config"
+	sed -i '/backgroundLighter= /c\backgroundLighter= #002b36' "$HOME/.config/polybar/config"
+	sed -i '/backgroundMain= /c\backgroundMain= #073642' "$HOME/.config/polybar/config"
 
 	i3-msg restart
 elif [ "Light" == "$load_or_create" ]; then
@@ -45,6 +52,10 @@ elif [ "Light" == "$load_or_create" ]; then
 
 	sed -i '0,/base16-solarized-dark.rasi/s/base16-solarized-dark.rasi/base16-solarized-light.rasi/' $HOME/.config/i3/config
 
+	#i3
+
+	sed -i '/set $solBGcolor/c\set $solBGcolor 	#fdf6e3' $HOME/.config/i3/config	
+	sed -i '/set $solBGalt/c\set $solBGalt 	#eee8d5' $HOME/.config/i3/config
 		
 
 
