@@ -108,7 +108,7 @@ bar-fill-font = 3
 bar-fill-foreground = ${colors.color2}
 bar-empty = ▁  
 bar-empty-font = 3
-bar-empty-foreground = ${colors.foregroundMain}
+bar-empty-foreground = ${colors.foregroundLighter}
 
 [module/battery]
 type = internal/battery
@@ -463,7 +463,7 @@ bar-volume-fill-foreground=${colors.color1}
 bar-volume-fill-font=3
 
 bar-volume-empty=▁
-bar-volume-empty-foreground=${colors.foregroundMain}
+bar-volume-empty-foreground=${colors.foregroundLighter}
 bar-volume-empty-font=3
 
 

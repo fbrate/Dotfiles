@@ -44,7 +44,7 @@ bindsym $mod+x exec dm-tool lock
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run  -fn Hack
 
-bindsym $mod+d exec rofi -theme $HOME/.local/share/rofi/themes/base16-solarized-light.rasi -config $HOME/.local/share/rofi/themes/base16-solarized-light.config -show run -font "Hack 14"
+bindsym $mod+d exec rofi -theme $HOME/.local/share/rofi/themes/base16-solarized-dark.rasi -config $HOME/.local/share/rofi/themes/base16-solarized-light.config -show run -font "Hack 14"
 
 #bindsym $mod+d exec rofi -font "hack 14" -show run
 bindsym $mod+u exec networkmanager_dmenu -fn Hack
@@ -179,8 +179,8 @@ bindsym $mod+r mode "resize"
 #        status_command i3bar
 #	position bottom
 #}
-set $solBGcolor 	#fdf6e3
-set $solBGalt 	#eee8d5
+set $solBGcolor 	#002b36
+set $solBGalt 	#073642
 set $bg-color 	         #414141
 set $inactive-bg-color   #000000
 set $text-color          #fcfcfc

@@ -2,16 +2,23 @@
 
 execute pathogen#infect()
 
+augroup myvimrchooks
+    au!
+    autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
+
+
 " Add configs below
 set nocompatible
 filetype plugin indent on
 set rtp+=~/.vim/bundle/fzf/bin/fzf
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized "NightAutoChange Change this line
 set number
 set relativenumber
 set autoindent
+set autoread
 set cursorline
 set colorcolumn=80
 set clipboard+=unnamedplus
@@ -22,7 +29,7 @@ let g:ycm_use_clangd = 0
 
 "Vim Airline
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
+let g:airline_solarized_bg="dark"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
