@@ -4,13 +4,13 @@
 
 [colors]
 ;base1
-foregroundLighter= #657b83
+foregroundLighter= #586e75
 ;base0
 foregroundMain= #839496
 ;base3
-backgroundLighter= #073642
+backgroundLighter= #002b36
 ;base2
-backgroundMain= #002b36
+backgroundMain= #073642
 
 ;Blue
 color3= #268bd2 
@@ -60,9 +60,9 @@ font-2 = FontAwesome:size=10;-2
 font-3 = NotoSans-Regular:size=8;-1
 font-4 = FontAwesome:size=14;-4
 
-modules-left = memory cpu updates-arch-combined
+modules-left = memory cpu battery battery2 arch-updates-combined
  modules-center = i3
-modules-right = pulseaudio backlight wireless-network wired-network battery battery2 date
+modules-right = pulseaudio backlight wireless-network wired-network date
 
 ; [bar/bottom]
 ; monitor = eDP1
@@ -114,11 +114,17 @@ bar-empty-foreground = ${colors.foregroundMain}
 type = internal/battery
 battery = BAT0
 full-at = 98
+poll-interval=5
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 
+label-discharging= %percentage%% %consumption%W
+
+label-charging= %percentage%% %time%
+time-format=%Mm
+label-full= %percentage%% %consumption%W
 ramp-capacity-0 = 
 ;icon battery color critical	
 ramp-capacity-0-foreground = ${colors.color8}
@@ -143,37 +149,43 @@ bar-capacity-empty-foreground = ${colors.color8}
 
 
 
-animation-charging-0 = 
-animation-charging-0-foreground= ${colors.color8}
+animation-charging-0 = 
+animation-charging-0-foreground= ${colors.color7}
+
 animation-charging-1 = 
-animation-charging-1-foreground= ${colors.color7}
+animation-charging-1-foreground= ${colors.color6}
+animation-charging-2 = 
+animation-charging-2-foreground= ${colors.color5}
 
-animation-charging-2 = 
-animation-charging-2-foreground= ${colors.color6}
 animation-charging-3 = 
-animation-charging-3-foreground= ${colors.color5}
+animation-charging-3-foreground= ${colors.color4}
+animation-charging-4 = 
+animation-charging-4-foreground= ${colors.color3}
 
-animation-charging-4 = 
-animation-charging-4-foreground= ${colors.color4}
 animation-charging-5 = 
-animation-charging-5-foreground= ${colors.color3}
-
-animation-charging-6 = 
-animation-charging-6-foreground= ${colors.color2}
+animation-charging-5-foreground= ${colors.color2}
+animation-charging-6 = 
+animation-charging-6-foreground= ${colors.color1}
 animation-charging-7 = 
-animation-charging-7-foreground= ${colors.color1}
+animation-charging-7-foreground= ${colors.color5}
 
 
 animation-charging-framerate = 300
-label-discharging-foreground= ${colors.color4}
-label-full-foreground= ${colors.color4}
-label-charging-foreground= ${colors.color4}
+label-discharging-foreground= ${colors.color5}
+label-full-foreground= ${colors.color5}
+label-charging-foreground= ${colors.color5}
 
 [module/battery2]
 type = internal/battery
 battery = BAT1
 full-at = 98
+poll-interval=5
 
+label-discharging= %percentage%% %consumption%W
+
+label-full= %percentage%% %consumption%W
+label-charging= %percentage%% %time%
+time-format=%Mm
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
@@ -185,11 +197,11 @@ ramp-capacity-1 = 
 ;icon battery color high
 ramp-capacity-1-foreground = ${colors.color7}
 ramp-capacity-2 = 
-ramp-capacity-2-foreground= ${colors.color5}
+ramp-capacity-2-foreground= ${colors.color4}
 ramp-capacity-3 = 
-ramp-capacity-3-foreground= ${colors.color5}
+ramp-capacity-3-foreground= ${colors.color4}
 ramp-capacity-4 = 
-ramp-capacity-4-foreground= ${colors.color5}
+ramp-capacity-4-foreground= ${colors.color4}
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
@@ -200,75 +212,80 @@ bar-capacity-empty = █
 bar-capacity-empty-font = 3
 bar-capacity-empty-foreground = ${colors.color8}
 
-animation-charging-0 = 
-animation-charging-0-foreground= ${colors.color8}
+
+animation-charging-0 = 
+animation-charging-0-foreground= ${colors.color7}
+
 animation-charging-1 = 
-animation-charging-1-foreground= ${colors.color7}
+animation-charging-1-foreground= ${colors.color6}
+animation-charging-2 = 
+animation-charging-2-foreground= ${colors.color5}
 
-animation-charging-2 = 
-animation-charging-2-foreground= ${colors.color6}
 animation-charging-3 = 
-animation-charging-3-foreground= ${colors.color5}
+animation-charging-3-foreground= ${colors.color4}
+animation-charging-4 = 
+animation-charging-4-foreground= ${colors.color3}
 
-animation-charging-4 = 
-animation-charging-4-foreground= ${colors.color4}
 animation-charging-5 = 
-animation-charging-5-foreground= ${colors.color3}
-
-animation-charging-6 = 
-animation-charging-6-foreground= ${colors.color2}
+animation-charging-5-foreground= ${colors.color2}
+animation-charging-6 = 
+animation-charging-6-foreground= ${colors.color1}
 animation-charging-7 = 
-animation-charging-7-foreground= ${colors.color1}
+animation-charging-7-foreground= ${colors.color4}
 
 animation-charging-framerate = 300
-label-discharging-foreground= ${colors.color5}
-label-full-foreground= ${colors.color5}
-label-charging-foreground= ${colors.color5}
+label-discharging-foreground= ${colors.color4}
+label-full-foreground= ${colors.color4}
+label-charging-foreground= ${colors.color4}
 
 [module/cpu]
 type = internal/cpu
-interval = 0.5
+interval = 1.0
 format = <label> <ramp-coreload>
 label = CPU
-label-foreground=${colors.color1}
-ramp-coreload-0 = ▁▁▁▁ 
-▁▃▅▆█
+label-foreground=${colors.foregroundLighter}
+ramp-coreload-0 = ▁▁▁
+
 ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = ${colors.foregroundLighter}
-ramp-coreload-1 =▂▂▂▂
+ramp-coreload-0-foreground = ${colors.color6}
+ramp-coreload-1 =▂▂▂
 ramp-coreload-1-font = 2
 ramp-coreload-1-foreground = ${colors.color2}
-ramp-coreload-2 = ▃▃▃▃ 
+ramp-coreload-2 = ▃▃▃ 
 ramp-coreload-2-font = 2
 ramp-coreload-2-foreground = ${colors.color3}
-ramp-coreload-3 = ▄▄▄▄
+ramp-coreload-3 = ▄▄▄
 ramp-coreload-3-font = 2
 ramp-coreload-3-foreground = ${colors.color4}
-ramp-coreload-4 = ▅▅▅▅   
+ramp-coreload-4 = ▅▅▅   
 ramp-coreload-4-font = 2
 ramp-coreload-4-foreground = ${colors.color5}
-ramp-coreload-5 = ▆▆▆▆ 
+ramp-coreload-5 = ▆▆▆ 
 ramp-coreload-5-font = 2
 ramp-coreload-5-foreground = ${colors.color6}
-ramp-coreload-6 = ▇▇▇▇
+ramp-coreload-6 = ▇▇▇
 ramp-coreload-6-font = 2
 ramp-coreload-6-foreground = ${colors.color7}
-ramp-coreload-7 = ████  
+ramp-coreload-7 = ███
 ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = ${colors.color8}
 
 [module/date]
 type = internal/date
-date =  %%{F#b58900} %d-%m-%Y%%{F-}  %%{F#cb4b16} %H:%M%%{F-}
-date-alt = %%{F#b58900} %A, %d %B %Y  %%{F#cb4b16} %H:%M%%{F#dc322f}:%%{F#dc322f}%S%%{F-}
+date =   %%{F#2aa198} %a. %%{F#859900}%d-%m-%Y%%{F-} %{F#cb4b16} %H:%M%%{F-}
+interval= 60
+; date-alt = %%{F#b58900} %A, %d %B %Y  %%{F#cb4b16} %H:%M%%{F#dc322f}:%%{F#dc322f}%S%%{F-}
+
+
 
 
 [module/memory]
 type = internal/memory
 format = <label> <bar-used>
 label = RAM
-label-foreground = ${colors.color5}
-bar-used-width = 32
+interval = 5
+label-foreground = ${colors.color8}
+bar-used-width = 24
 ;ram ramp color here
 bar-used-foreground-0 = ${colors.color1}
 bar-used-foreground-1 = ${colors.color2}
@@ -298,7 +315,7 @@ wrapping-scroll = false
 
 label-focused = %icon%
 label-focused-padding = 1
-label-focused-underline = ${colors.foregroundMain}
+label-focused-underline = ${colors.foregroundLighter}
 
 }
 ;icon focus color nedenfor
@@ -374,8 +391,8 @@ label-seperator-background = ${colors.backgroundMain}
 [module/wireless-network]
 type = internal/network
 interface = wlp4s0
-interval = 3.0
-ping-interval = 20
+interval = 5
+ping-interval = 30
 
 
 ; format-connected = <ramp-signal> <label-connected>
@@ -387,11 +404,9 @@ label-connected-foreground = ${colors.color3}
 label-disconnected =   no connection
 label-disconnected-foreground = ${colors.color8}
 
-ramp-signal-0 = ▁
-ramp-signal-1 = ▁▃
-ramp-signal-2 = ▁▃▅
-ramp-signal-3 = ▁▃▅▆
-ramp-signal-4 = █
+ramp-signal-0 =
+ramp-signal-1 = 
+ramp-signal-2 = 
 ramp-signal-foreground=${colors.color3}
 ramp-signal-font=3
 
@@ -425,7 +440,7 @@ use-ui-max = true
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
-interval = 5
+interval = 5%
 
 
 
@@ -471,10 +486,6 @@ format-foreground = ${colors.color1}
 exec = ~/Scripts/updates-arch-combined.sh
 interval = 600
 
-[module/clock]
-type = internal/date
-interval = 1
-date = %%%Y-%m-%d%%  %%%H:%M%%
 
 [settings]
 
