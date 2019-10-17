@@ -19,6 +19,8 @@ if [ "Dark" == "$load_or_create" ]; then
 	sed -i '/let g:airline_solarized_bg=/c\let g:airline_solarized_bg="dark"' ~/.vimrc
 	sed -i '/gtk=theme-name=/c\gtk-theme-name=NumixSolarizedDarkBlue' "$HOME/.gtkrc-2.0.mine"
 
+	#rofi
+	sed -i '0,/base16-solarized-light.rasi/s/base16-solarized-light.rasi/base16-solarized-dark.rasi/' $HOME/.config/i3/config
 	#poly
 
 	sed -i '/foregroundLighter= /c\foregroundLighter= #657b83' "$HOME/.config/polybar/config"	
@@ -38,6 +40,12 @@ elif [ "Light" == "$load_or_create" ]; then
 	sed -i '/let g:airline_solarized_bg=/c\let g:airline_solarized_bg="light"' ~/.vimrc
 	sed -i '/gtk=theme-name=/c\gtk-theme-name=NumixSolarizedLightBlue' "$HOME/.gtkrc-2.0.mine"
  	sed -i '/gtk=theme-name=/c\gtk-theme-name=NumixSolarizedLightBlue' "$HOME/.config/gtk-3.0/settings.ini"
+
+	#rofi
+
+	sed -i '0,/base16-solarized-dark.rasi/s/base16-solarized-dark.rasi/base16-solarized-light.rasi/' $HOME/.config/i3/config
+
+		
 
 
 
